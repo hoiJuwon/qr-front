@@ -3,7 +3,26 @@ import QRCode from "react-qr-code";
 // import { GoogleSpreadsheet } from "google-spreadsheet";
 // import creds from "../data/.key.js";
 
+import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
+
+/* here goes util function, too lazy to export and make it module.... */
+const setUserNameToLocalStorage = (userName) => {
+  window.localStorage.setItem("userName", userName);
+};
+
+const setIdToLocalStorage = () => {
+  const id = uuidv4();
+  window.localStorage.setItem("id", id);
+};
+
+const getUserNameFromLocalStorage = () => {
+  return window.localStorage.getItem("userName");
+};
+
+const getIdFromLocalStorage = () => {
+  return window.localStorage.getItem("id");
+};
 
 const Container = styled.div`
   margin: 0 auto;
@@ -110,13 +129,17 @@ function Participant() {
     userName: "",
   });
   const [isQRGenerated, setIsQRGenerated] = useState(false);
-  const [qrUrl, setQrUrl] = useState("");
+  const [qrData, setQrData] = useState("");
 
   const { userName } = inputs;
 
   useEffect(() => {
     const userName = getUserNameFromLocalStorage();
-    if (userName && userName.length !== 0) {
+    const id = getIdFromLocalStorage();
+    if (!id || id.length === 0) {
+      setIdToLocalStorage();
+    }
+    if (userName && userName.length !== 0 && id && id.length !== 0) {
       setIsNameRegistered(() => true);
       generateQrHandler();
     }
@@ -153,15 +176,6 @@ function Participant() {
   }
   */
 
-  const registerUserName = () => {
-    window.localStorage.setItem("userName", userName);
-    setIsNameRegistered(() => true);
-    generateQrHandler();
-  };
-  const getUserNameFromLocalStorage = () => {
-    return window.localStorage.getItem("userName");
-  };
-
   const onChange = (e) => {
     const { value, name } = e.target;
     setInputs({
@@ -173,8 +187,19 @@ function Participant() {
   const generateQrHandler = () => {
     // TODO : generateQr with userName
     const userName = getUserNameFromLocalStorage();
-    setQrUrl(() => `https://bla-bla.com/${userName}`);
+    const id = getIdFromLocalStorage();
+    const data = {
+      id: id,
+      userName: userName,
+    };
+    setQrData(() => JSON.stringify(data));
     setIsQRGenerated(() => true);
+  };
+
+  const registerUserName = () => {
+    setUserNameToLocalStorage(userName);
+    setIsNameRegistered(() => true);
+    generateQrHandler();
   };
 
   return (
@@ -201,7 +226,7 @@ function Participant() {
       {isQRGenerated && (
         <>
           <QRContainer>
-            <QRCode value={qrUrl} fgColor="#FFFFFF" bgColor="transparent" />
+            <QRCode value={qrData} fgColor="#FFFFFF" bgColor="transparent" />
           </QRContainer>
           <RegisterBtn type="submit">이름 재등록하기</RegisterBtn>
         </>
