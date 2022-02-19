@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/qr-front/static/css/main.02286a45.chunk.css",
+    "main.js": "/qr-front/static/js/main.49b87a24.chunk.js",
+    "main.js.map": "/qr-front/static/js/main.49b87a24.chunk.js.map",
+    "runtime-main.js": "/qr-front/static/js/runtime-main.4a72ba21.js",
+    "runtime-main.js.map": "/qr-front/static/js/runtime-main.4a72ba21.js.map",
+    "static/js/2.d8e9983d.chunk.js": "/qr-front/static/js/2.d8e9983d.chunk.js",
+    "static/js/2.d8e9983d.chunk.js.map": "/qr-front/static/js/2.d8e9983d.chunk.js.map",
+    "static/js/3.dc34237f.chunk.js": "/qr-front/static/js/3.dc34237f.chunk.js",
+    "static/js/3.dc34237f.chunk.js.map": "/qr-front/static/js/3.dc34237f.chunk.js.map",
+    "index.html": "/qr-front/index.html",
+    "static/css/main.02286a45.chunk.css.map": "/qr-front/static/css/main.02286a45.chunk.css.map",
+    "static/js/2.d8e9983d.chunk.js.LICENSE.txt": "/qr-front/static/js/2.d8e9983d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a72ba21.js",
+    "static/js/2.d8e9983d.chunk.js",
+    "static/css/main.02286a45.chunk.css",
+    "static/js/main.49b87a24.chunk.js"
+  ]
+}
