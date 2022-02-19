@@ -11,7 +11,6 @@ function Page() {
       .query({ name: "camera" })
       .then((permissionObj) => {
         console.log(permissionObj.state);
-        let permission = permissionObj.state;
       })
       .catch((error) => {
         console.log("Got error :", error);

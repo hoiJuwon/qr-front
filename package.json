@@ -1,5 +1,5 @@
 {
-  "homepage": "http://hoiJuwon.github.io/decipher-qr-front",
+  "homepage": "http://decipher-qr.github.io/",
   "name": "decipher-qr-front",
   "version": "0.1.0",
   "private": true,
@@ -15,6 +15,7 @@
     "react-qr-code": "^2.0.3",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^4.0.3",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
